@@ -1,0 +1,9 @@
+node_modules/
+bower_components/
+assets/
+bin
+build
+.classpath
+.gradle
+.project
+.settings

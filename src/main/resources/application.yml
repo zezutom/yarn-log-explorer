@@ -1,0 +1,26 @@
+spring:
+    hadoop:
+        fsUri: hdfs://localhost:9000
+        resourceManagerHost: localhost
+    yarn:
+        appName: gs-yarn-basic-single
+        applicationDir: /app/gs-yarn-basic-single/
+        client:
+            startup:
+                action: submit
+            localizer:
+                patterns:
+                  - "*.jar"
+            files:
+              - "file:target/yarn-log-explorer-0.1.0.jar"
+            launchcontext:
+                archiveFile: yarn-log-explorer-0.1.0.jar
+        appmaster:
+            localizer:
+                patterns:
+                  - "*.jar"
+            containerCount: 1
+            launchcontext:
+                archiveFile: yarn-log-explorer-0.1.0.jar
+                arguments:
+                    --spring.profiles.active: container
